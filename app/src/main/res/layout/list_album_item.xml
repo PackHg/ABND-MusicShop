@@ -5,15 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minHeight="@dimen/list_album_item_height"
-    android:padding="@dimen/activity_margin_quarter"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:padding="@dimen/activity_margin_quarter">
 
     <TextView
         android:id="@+id/album_title"
         android:layout_width="@dimen/list_album_item_height"
         android:layout_height="@dimen/list_album_item_height"
+        android:background="@color/colorPrimaryDark"
         android:gravity="center"
         android:textColor="@color/colorWhite"
-        android:background="@color/colorPrimaryDark"/>
+        android:textStyle="bold" />
 
 </LinearLayout>

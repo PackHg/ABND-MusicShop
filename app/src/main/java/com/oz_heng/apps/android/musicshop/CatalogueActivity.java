@@ -2,7 +2,10 @@ package com.oz_heng.apps.android.musicshop;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -32,9 +35,18 @@ public class CatalogueActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalogue);
 
-        AlbumAdaper albumAdaper = new AlbumAdaper(this, albumArrayList);
+        GridView albumGridView = (GridView) findViewById(R.id.catalogue_gridview);
 
-        GridView albumListView = (GridView) findViewById(R.id.catalogue_gridview);
-        albumListView.setAdapter(albumAdaper);
+        // Set AlbumAdapter to the GridView
+        AlbumAdaper albumAdaper = new AlbumAdaper(this, albumArrayList);
+        albumGridView.setAdapter(albumAdaper);
+
+        albumGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(CatalogueActivity.this, "Album " + (i+1), Toast.LENGTH_SHORT)
+                        .show();
+            }
+        });
     }
 }
