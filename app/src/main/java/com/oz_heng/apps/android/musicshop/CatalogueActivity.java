@@ -1,8 +1,8 @@
 package com.oz_heng.apps.android.musicshop;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ListView;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.GridView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -34,7 +34,7 @@ public class CatalogueActivity extends AppCompatActivity {
 
         AlbumAdaper albumAdaper = new AlbumAdaper(this, albumArrayList);
 
-        ListView albumListView = (ListView) findViewById(R.id.catalogue_album_list);
+        GridView albumListView = (GridView) findViewById(R.id.catalogue_gridview);
         albumListView.setAdapter(albumAdaper);
     }
 }
