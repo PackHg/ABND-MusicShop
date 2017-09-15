@@ -35,7 +35,7 @@ public class AlbumAdaper extends ArrayAdapter<Album> {
 
         Album album = getItem(position);
 
-        TextView titleTextView = (TextView)  albumView.findViewById(R.id.album_title);
+        TextView titleTextView = (TextView)  albumView.findViewById(R.id.album_number);
         titleTextView.setText(album.getTitle());
 
         return albumView;

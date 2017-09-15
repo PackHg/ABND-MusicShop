@@ -1,5 +1,6 @@
 package com.oz_heng.apps.android.musicshop;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -15,6 +16,10 @@ import java.util.Arrays;
  */
 public class CatalogueActivity extends AppCompatActivity {
 
+    // Key for passing the album number as argument through an Intent.
+    static final String ALBUM_NUMBER_ARG = "album_number";
+
+    // Albums' data
     static final ArrayList<Album> albumArrayList = new ArrayList<>(
             Arrays.asList(
                     new Album("Album 1"),
@@ -46,6 +51,11 @@ public class CatalogueActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Toast.makeText(CatalogueActivity.this, "Album " + (i+1), Toast.LENGTH_SHORT)
                         .show();
+
+                // Start the AlbumActivity with the album number.
+                Intent intent = new Intent(CatalogueActivity.this, AlbumActivity.class);
+                intent.putExtra(ALBUM_NUMBER_ARG, i);
+                startActivity(intent);
             }
         });
     }
