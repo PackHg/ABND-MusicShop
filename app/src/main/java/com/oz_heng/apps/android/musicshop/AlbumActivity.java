@@ -1,11 +1,16 @@
 package com.oz_heng.apps.android.musicshop;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import static com.oz_heng.apps.android.musicshop.CatalogueActivity.ALBUM_NUMBER_ARG;
+import static com.oz_heng.apps.android.musicshop.CatalogueActivity.albumArrayList;
 
 public class AlbumActivity extends AppCompatActivity {
 
@@ -19,8 +24,25 @@ public class AlbumActivity extends AppCompatActivity {
         // Get the Album number passed through the Intent.
         Intent intent = getIntent();
         mAlbumNumner = intent.getIntExtra(ALBUM_NUMBER_ARG, mAlbumNumner);
+        Album album = albumArrayList.get(mAlbumNumner);
 
-        TextView textView = (TextView) findViewById(R.id.album_reference);
-        textView.setText("Album " + (mAlbumNumner + 1));
+        // set the Album number in the action bar.
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setTitle(getString(R.string.album) + " " + (mAlbumNumner + 1));
+        }
+
+        // Set SongAdapter to the ListView.
+        ListView songListView = (ListView) findViewById(R.id.album_list_view);
+        SongAdapter songAdapter = new SongAdapter(this, album.getSongs());
+        songListView.setAdapter(songAdapter);
+
+        songListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(AlbumActivity.this, String.valueOf(i), Toast.LENGTH_SHORT).
+                        show();
+            }
+        });
     }
 }

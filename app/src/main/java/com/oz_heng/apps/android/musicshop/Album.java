@@ -8,16 +8,20 @@ import java.util.ArrayList;
 public class Album {
 
     // Title of the album
-    private String mTitle;
+    private String mTitle = "";
     // List of songs
-    private ArrayList<String> mListOfSongs;
+    private ArrayList<Song> mSongs = new ArrayList<>();
 
     /**
      * Create a new Album object.
      * @param title title of the album.
+     * @param songs ArrayList of {@link Song}.
      */
-    public Album(String title) {
+    public Album(String title, ArrayList<Song> songs) {
         mTitle = title;
+        for(int i = 0; i < songs.size(); i++) {
+            mSongs.add(i, songs.get(i));
+        }
     }
 
     /**
@@ -26,5 +30,9 @@ public class Album {
      */
     public String getTitle() {
         return mTitle;
+    }
+
+    public ArrayList<Song> getSongs() {
+        return mSongs;
     }
 }

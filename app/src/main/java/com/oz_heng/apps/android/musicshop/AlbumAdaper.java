@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 /**
  * {@link AlbumAdaper} is an {@link ArrayAdapter} that can provide the layout for each
- * list based on a data source, which is a list of {@link Album} objects.
+ * list item based on a data source, which is a list of {@link Album} objects.
  */
 public class AlbumAdaper extends ArrayAdapter<Album> {
 
@@ -35,8 +35,10 @@ public class AlbumAdaper extends ArrayAdapter<Album> {
 
         Album album = getItem(position);
 
-        TextView titleTextView = (TextView)  albumView.findViewById(R.id.album_number);
-        titleTextView.setText(album.getTitle());
+        TextView titleTextView = albumView.findViewById(R.id.album_number);
+        if (album != null) {
+            titleTextView.setText(album.getTitle());
+        }
 
         return albumView;
     }

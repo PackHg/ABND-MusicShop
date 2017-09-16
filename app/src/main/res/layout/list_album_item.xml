@@ -2,6 +2,7 @@
 
 <!-- Layout for a single list album item -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minHeight="@dimen/list_album_item_height"
@@ -12,9 +13,10 @@
         android:id="@+id/album_number"
         android:layout_width="@dimen/list_album_item_height"
         android:layout_height="@dimen/list_album_item_height"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/colorLime800"
         android:gravity="center"
         android:textColor="@color/colorWhite"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:text="Album"/>
 
 </LinearLayout>

@@ -2,4 +2,8 @@
     <string name="app_name">Music Shop</string>
     <string name="catalogue">Catalogue</string>
     <string name="album">Album</string>
+
+    <string name="read_more">Read more</string>
+    <string name="add_to_wishlist">Add to wishlist</string>
+    <string name="buy">Buy</string>
 </resources>

@@ -9,9 +9,45 @@
     tools:context="com.oz_heng.apps.android.musicshop.AlbumActivity">
 
     <TextView
-        android:id="@+id/album_reference"
+        android:id="@+id/album_about"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Album number"/>
+        tools:text="About this activity" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_margin_half"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/album_read_more"
+            style="@style/ButtonStyle"
+            android:text="@string/read_more" />
+
+        <Button
+            android:id="@+id/album_add_to_whishlist"
+            style="@style/ButtonStyle"
+            android:layout_marginLeft="@dimen/activity_margin_half"
+            android:layout_marginStart="@dimen/activity_margin_half"
+            android:text="@string/add_to_wishlist" />
+
+        <Button
+            android:id="@+id/album_buy"
+            style="@style/ButtonStyle"
+            android:layout_marginLeft="@dimen/activity_margin_half"
+            android:layout_marginStart="@dimen/activity_margin_half"
+            android:text="@string/buy" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/album_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/activity_margin"
+        android:drawSelectorOnTop="true"
+        android:orientation="vertical" />
 
 </LinearLayout>
