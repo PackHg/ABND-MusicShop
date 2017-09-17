@@ -4,6 +4,8 @@
     <string name="album">Album</string>
 
     <string name="read_more">Read more</string>
+    <string name="go_to_album">Go to album</string>
     <string name="add_to_wishlist">Add to wishlist</string>
     <string name="buy">Buy</string>
+    <string name="buy_album">Buy album</string>
 </resources>

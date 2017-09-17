@@ -10,8 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".CatalogueActivity"
-            android:label="@string/catalogue">
+            android:name=".CatalogueActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,8 +18,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AlbumActivity"
-            android:label="@string/album" />
+            android:name=".AlbumActivity" />
     </application>
 
 </manifest>

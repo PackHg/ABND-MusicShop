@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!-- Layout for a single list album item -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:minHeight="@dimen/list_album_item_height"
-    android:orientation="horizontal"
-    android:padding="@dimen/activity_margin_quarter">
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/album_number"
@@ -17,6 +16,14 @@
         android:gravity="center"
         android:textColor="@color/colorWhite"
         android:textStyle="bold"
-        tools:text="Album"/>
+        tools:text="Album" />
 
-</LinearLayout>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/album_number"
+        android:layout_alignRight="@+id/album_number"
+        android:layout_alignBottom="@+id/album_number"
+        android:src="@drawable/ic_more_vert_white"/>
+
+</RelativeLayout>

@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- Options menu for the MainActivity -->
+<!-- Contextual menu options for an Album item -->
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" >
 
     <item
-        android:id="@+id/catalogue_album_item_menu_option_buy"
-        android:title="@string/buy"
+        android:id="@+id/album_item_cmenu_option_go_to_album"
+        android:title="@string/go_to_album"
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/catalogue_album_item_menu_option_add_to_wishlist"
+        android:id="@+id/album_item_cmenu_option_buy_album"
+        android:title="@string/buy_album"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/album_item_cmenu_option_add_to_wishlist"
         android:title="@string/add_to_wishlist"
         app:showAsAction="ifRoom" />
 </menu>

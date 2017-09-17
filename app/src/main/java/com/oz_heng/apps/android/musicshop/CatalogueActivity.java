@@ -2,12 +2,12 @@ package com.oz_heng.apps.android.musicshop;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.GridView;
 import android.widget.Toast;
@@ -71,25 +71,16 @@ public class CatalogueActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalogue);
 
+        // set the title in the action bar.
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setTitle(getString(R.string.catalogue));
+        }
+
         // Set AlbumAdapter to the GridView
         GridView albumGridView = (GridView) findViewById(R.id.catalogue_gridview);
         AlbumAdaper albumAdaper = new AlbumAdaper(this, albumArrayList);
         albumGridView.setAdapter(albumAdaper);
-
-        /* setOnItemClickListener on GridView to start the AlbumActivity and
-         * pass the position of the clicked Album item */
-        albumGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(CatalogueActivity.this, "Album " + (i+1), Toast.LENGTH_SHORT)
-                        .show();
-
-                // Start the AlbumActivity with the album number.
-                Intent intent = new Intent(CatalogueActivity.this, AlbumActivity.class);
-                intent.putExtra(ALBUM_NUMBER_ARG, i);
-                startActivity(intent);
-            }
-        });
 
         // Associate albumGridView with a contextual menu.
         registerForContextMenu(albumGridView);
@@ -106,12 +97,19 @@ public class CatalogueActivity extends AppCompatActivity {
     @Override
     public boolean onContextItemSelected(MenuItem item) {
         AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
+        int albumNumber = (int) info.id;
+
         switch (item.getItemId()) {
-            case R.id.catalogue_album_item_menu_option_buy:
-                Toast.makeText(this, "info.id " + info.id + " - Buy", Toast.LENGTH_SHORT).show();
+            case R.id.album_item_cmenu_option_go_to_album:
+                Intent intent = new Intent(CatalogueActivity.this, AlbumActivity.class);
+                intent.putExtra(ALBUM_NUMBER_ARG, albumNumber);
+                startActivity(intent);
                 return true;
-            case R.id.catalogue_album_item_menu_option_add_to_wishlist:
-                Toast.makeText(this, "info.id " + info.id + " - Add to wishlist", Toast.LENGTH_SHORT).show();
+            case R.id.album_item_cmenu_option_buy_album:
+                Toast.makeText(this, "Album " + (albumNumber +1) + " - Buy album", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.album_item_cmenu_option_add_to_wishlist:
+                Toast.makeText(this, "Album " + (albumNumber +1) + " - Add to wishlist", Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return super.onContextItemSelected(item);
