@@ -3,8 +3,12 @@ package com.oz_heng.apps.android.musicshop;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.ContextMenu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.GridView;
 import android.widget.Toast;
 
@@ -72,6 +76,8 @@ public class CatalogueActivity extends AppCompatActivity {
         AlbumAdaper albumAdaper = new AlbumAdaper(this, albumArrayList);
         albumGridView.setAdapter(albumAdaper);
 
+        /* setOnItemClickListener on GridView to start the AlbumActivity and
+         * pass the position of the clicked Album item */
         albumGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -84,5 +90,31 @@ public class CatalogueActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        // Associate albumGridView with a contextual menu.
+        registerForContextMenu(albumGridView);
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v,
+                                    ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_album_item, menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
+        switch (item.getItemId()) {
+            case R.id.catalogue_album_item_menu_option_buy:
+                Toast.makeText(this, "info.id " + info.id + " - Buy", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.catalogue_album_item_menu_option_add_to_wishlist:
+                Toast.makeText(this, "info.id " + info.id + " - Add to wishlist", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
     }
 }

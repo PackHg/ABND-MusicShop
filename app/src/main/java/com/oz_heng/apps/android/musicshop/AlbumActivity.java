@@ -44,5 +44,7 @@ public class AlbumActivity extends AppCompatActivity {
                         show();
             }
         });
+
+
     }
 }
