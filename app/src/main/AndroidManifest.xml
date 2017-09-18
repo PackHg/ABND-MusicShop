@@ -9,16 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".CatalogueActivity">
+        <activity android:name=".CatalogueActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".AlbumActivity" />
+        <activity android:name=".AlbumActivity" />
+        <activity android:name=".ReadMoreActivity" />
+        <activity android:name=".WishlistActivity" />
+        <activity android:name=".PaymentActivity"></activity>
     </application>
 
 </manifest>
