@@ -19,7 +19,7 @@
     <GridView
         android:id="@+id/catalogue_gridview"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="match_parent"
         android:layout_marginTop="@dimen/activity_margin"
         android:columnWidth="90dp"
         android:gravity="center"
@@ -27,11 +27,5 @@
         android:numColumns="auto_fit"
         android:stretchMode="columnWidth"
         android:verticalSpacing="10dp" />
-
-    <Button
-        android:id="@+id/catalogue_wishlist"
-        style="@style/ButtonStyle"
-        android:layout_marginTop="@dimen/activity_margin"
-        android:text="@string/wishlist" />
 
 </LinearLayout>

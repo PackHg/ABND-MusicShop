@@ -9,7 +9,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView.AdapterContextMenuInfo;
-import android.widget.Button;
 import android.widget.GridView;
 import android.widget.Toast;
 
@@ -86,15 +85,6 @@ public class CatalogueActivity extends AppCompatActivity {
         // Associate albumGridView with a contextual menu.
         registerForContextMenu(albumGridView);
 
-        // SetOnClickListner on "Wishlist" button to start the WishlistActivity
-        Button wishlistButton = (Button) findViewById(R.id.catalogue_wishlist);
-        wishlistButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(CatalogueActivity.this, WishlistActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
     @Override
