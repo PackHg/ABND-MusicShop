@@ -8,7 +8,7 @@
     android:minHeight="@dimen/list_album_item_height"
     android:orientation="vertical">
 
-    <Button
+    <TextView
         android:id="@+id/album_number"
         android:layout_width="@dimen/list_album_item_height"
         android:layout_height="@dimen/list_album_item_height"
