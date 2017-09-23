@@ -11,4 +11,8 @@
     <string name="add_to_wishlist">Add to wishlist</string>
     <string name="buy">Buy</string>
     <string name="buy_album">Buy album</string>
+
+    <!-- Wishlist -->
+    <string name="album_already_in_wishlist">Album %1$d is already in the wishlist</string>
+    <string name="album_added_to_wishlist">Album %1$d is added to the wishlist</string>
 </resources>

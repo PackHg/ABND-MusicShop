@@ -11,6 +11,6 @@
     <dimen name="list_album_item_height">88dp</dimen>
 
     <!-- Height of the TextView used to sum up the purpose of the Activity -->
-    <dimen name="textview_about_height">100dp</dimen>
+    <dimen name="textview_purpose_height">100dp</dimen>
 
 </resources>

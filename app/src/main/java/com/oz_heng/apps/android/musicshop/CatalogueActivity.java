@@ -4,11 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView.AdapterContextMenuInfo;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.Toast;
 
@@ -20,11 +22,13 @@ import java.util.Arrays;
  */
 public class CatalogueActivity extends AppCompatActivity {
 
+    static final String LOG_TAG = CatalogueActivity.class.getSimpleName();
+
     // Key for passing the album number as argument through an Intent.
     static final String ALBUM_NUMBER_ARG = "album_number";
 
     // Albums' dummy data
-    static final ArrayList<Album> albumArrayList = new ArrayList<>(
+    static final ArrayList<Album> catalogue = new ArrayList<>(
             Arrays.asList(
                     new Album("Album 1", new ArrayList<>(Arrays.asList(new Song("Song 1-01"),
                             new Song("Song 1-02"), new Song("Song 1-03"), new Song("Song 1-04"),
@@ -66,6 +70,9 @@ public class CatalogueActivity extends AppCompatActivity {
                             new Song("Song 10-02"), new Song("Song 10-03"), new Song("Song 10-04"))))
             ));
 
+    // Wishlist of album numbers
+    static ArrayList<Integer> wishlist = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,12 +86,21 @@ public class CatalogueActivity extends AppCompatActivity {
 
         // Set AlbumAdapter to the GridView
         GridView albumGridView = (GridView) findViewById(R.id.catalogue_gridview);
-        AlbumAdaper albumAdaper = new AlbumAdaper(this, albumArrayList);
+        AlbumAdaper albumAdaper = new AlbumAdaper(this, catalogue);
         albumGridView.setAdapter(albumAdaper);
 
         // Associate albumGridView with a contextual menu.
         registerForContextMenu(albumGridView);
 
+        // Set "Wishlist" button to start WishlistActivity
+        Button wishlistButton = (Button) findViewById(R.id.catalogue_goto_wishlist);
+        wishlistButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CatalogueActivity.this, WishlistActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -106,14 +122,34 @@ public class CatalogueActivity extends AppCompatActivity {
                 intent.putExtra(ALBUM_NUMBER_ARG, albumNumber);
                 startActivity(intent);
                 return true;
+
             case R.id.album_item_cmenu_option_buy_album:
                 Toast.makeText(this, "Album " + (albumNumber +1) + " - Buy album", Toast.LENGTH_SHORT).show();
                 return true;
+
             case R.id.album_item_cmenu_option_add_to_wishlist:
-                Toast.makeText(this, "Album " + (albumNumber +1) + " - Add to wishlist", Toast.LENGTH_SHORT).show();
+                if (wishlist.contains(albumNumber)) {
+                    displayToastMessage(getString(R.string.album_already_in_wishlist,
+                            albumNumber + 1));
+                } else {
+                    wishlist.add(albumNumber);
+                    displayToastMessage(getString(R.string.album_added_to_wishlist,
+                            albumNumber + 1));
+                }
+                Log.v(LOG_TAG, "wishlist: " + wishlist.toString());
+
                 return true;
+
             default:
                 return super.onContextItemSelected(item);
         }
+    }
+
+    /**
+     * Display a Toast message.
+     * @param message message to display.
+     */
+    void displayToastMessage(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }

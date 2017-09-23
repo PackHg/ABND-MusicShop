@@ -10,7 +10,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import static com.oz_heng.apps.android.musicshop.CatalogueActivity.ALBUM_NUMBER_ARG;
-import static com.oz_heng.apps.android.musicshop.CatalogueActivity.albumArrayList;
+import static com.oz_heng.apps.android.musicshop.CatalogueActivity.catalogue;
 
 public class AlbumActivity extends AppCompatActivity {
 
@@ -24,7 +24,7 @@ public class AlbumActivity extends AppCompatActivity {
         // Get the Album number passed through the Intent.
         Intent intent = getIntent();
         mAlbumNumner = intent.getIntExtra(ALBUM_NUMBER_ARG, mAlbumNumner);
-        Album album = albumArrayList.get(mAlbumNumner);
+        Album album = catalogue.get(mAlbumNumner);
 
         // set the Album number in the action bar.
         ActionBar actionBar = getSupportActionBar();
