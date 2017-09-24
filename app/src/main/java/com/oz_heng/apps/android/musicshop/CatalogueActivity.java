@@ -17,6 +17,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import static com.oz_heng.apps.android.musicshop.Utils.displayToastMessage;
+
 /**
  * {@link CatalogueActivity} displays a list of albums.
  */
@@ -108,7 +110,7 @@ public class CatalogueActivity extends AppCompatActivity {
                                     ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_album_item, menu);
+        menuInflater.inflate(R.menu.catalogue_album_item_cmenu, menu);
     }
 
     @Override
@@ -129,15 +131,14 @@ public class CatalogueActivity extends AppCompatActivity {
 
             case R.id.album_item_cmenu_option_add_to_wishlist:
                 if (wishlist.contains(albumNumber)) {
-                    displayToastMessage(getString(R.string.album_already_in_wishlist,
+                    displayToastMessage(this, getString(R.string.album_already_in_wishlist,
                             albumNumber + 1));
                 } else {
                     wishlist.add(albumNumber);
-                    displayToastMessage(getString(R.string.album_added_to_wishlist,
+                    displayToastMessage(this, getString(R.string.album_added_to_wishlist,
                             albumNumber + 1));
                 }
                 Log.v(LOG_TAG, "wishlist: " + wishlist.toString());
-
                 return true;
 
             default:
@@ -145,11 +146,4 @@ public class CatalogueActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     * Display a Toast message.
-     * @param message message to display.
-     */
-    void displayToastMessage(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-    }
-}
+  }

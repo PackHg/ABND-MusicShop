@@ -51,4 +51,12 @@
         android:id="@+id/wishlist_gridview"
         style="@style/GridViewStyle" />
 
+    <!-- Empty view for the wishlist -->
+    <TextView
+        android:id="@+id/wishlist_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/wishlist_empty" />
+
 </LinearLayout>

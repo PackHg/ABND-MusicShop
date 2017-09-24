@@ -9,10 +9,14 @@
     <string name="about_the_alubm">About the Album</string>
     <string name="go_to_album">Go to album</string>
     <string name="add_to_wishlist">Add to wishlist</string>
+    <string name="remove_from_wishlist">Remove from wishlist</string>
     <string name="buy">Buy</string>
     <string name="buy_album">Buy album</string>
 
     <!-- Wishlist -->
+    <string name="wishlist_empty">Wishlist is empty</string>
     <string name="album_already_in_wishlist">Album %1$d is already in the wishlist</string>
     <string name="album_added_to_wishlist">Album %1$d is added to the wishlist</string>
+    <string name="album_removed_from_wishlist">Album %1$d is removed from the wishlist</string>
+
 </resources>

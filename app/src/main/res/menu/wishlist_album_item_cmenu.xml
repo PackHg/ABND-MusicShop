@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Contextual menu options for an Album item in Wishlist -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools" >
+
+<item
+    android:id="@+id/album_item_cmenu_option_go_to_album"
+    android:title="@string/go_to_album"
+    app:showAsAction="ifRoom" />
+
+<item
+    android:id="@+id/album_item_cmenu_option_buy_album"
+    android:title="@string/buy_album"
+    app:showAsAction="ifRoom" />
+
+<item
+    android:id="@+id/album_item_cmenu_option_remove_from_wishlist"
+    android:title="@string/remove_from_wishlist"
+    app:showAsAction="ifRoom" />
+</menu>
