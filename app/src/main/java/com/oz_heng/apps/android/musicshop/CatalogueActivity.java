@@ -1,6 +1,7 @@
 package com.oz_heng.apps.android.musicshop;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -75,6 +76,11 @@ public class CatalogueActivity extends AppCompatActivity {
     // Wishlist of album numbers
     static ArrayList<Integer> wishlist = new ArrayList<>();
 
+    // Keys used for saving and restoring wishlist into and from SharedPreferences
+    final static String USER_DATA = "com.oz_heng.apps.android.musicshop.userData";
+    static final String KEY_WISHLIST = "wishlist";
+    static final String KEY_WISHLIST_SIZE= "wishlist_size";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,6 +91,21 @@ public class CatalogueActivity extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.setTitle(getString(R.string.catalogue));
         }
+
+        // Restore wishlist data from SharedPreferences
+        SharedPreferences sp = getSharedPreferences(USER_DATA, 0);
+        if (sp != null) {
+            Log.v(LOG_TAG, "Restore wishlist from SharedPreferences");
+            int size = sp.getInt(KEY_WISHLIST_SIZE, 0);
+            Log.v(LOG_TAG, "size: " + size);
+            wishlist.clear();
+            for(int i = 0; i < size; i++) {
+                wishlist.add(i, sp.getInt(KEY_WISHLIST + i, -1));
+                Log.v(LOG_TAG, "wishlist.get(" + i + "): " + wishlist.get(i));
+            }
+        }
+
+        Log.v(LOG_TAG, "wishlist: " + wishlist.toString());
 
         // Set AlbumAdapter to the GridView
         GridView albumGridView = (GridView) findViewById(R.id.catalogue_gridview);
@@ -146,4 +167,20 @@ public class CatalogueActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        Log.v(LOG_TAG, "onStop()");
+        // Save wishlist data into SharedPreferences
+        SharedPreferences sp = getSharedPreferences(USER_DATA, 0);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putInt(KEY_WISHLIST_SIZE, wishlist.size());
+        Log.v(LOG_TAG, "wishlist.size(): " + wishlist.size());
+        for(int i = 0; i < wishlist.size(); i++) {
+            editor.putInt(KEY_WISHLIST + i, wishlist.get(i));
+            Log.v(LOG_TAG, "wishlist.get(" + i +"): " + wishlist.get(i));
+        }
+        editor.apply();
+    }
   }

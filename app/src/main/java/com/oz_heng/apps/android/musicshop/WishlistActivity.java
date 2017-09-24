@@ -1,6 +1,7 @@
 package com.oz_heng.apps.android.musicshop;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +18,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import static com.oz_heng.apps.android.musicshop.CatalogueActivity.ALBUM_NUMBER_ARG;
+import static com.oz_heng.apps.android.musicshop.CatalogueActivity.KEY_WISHLIST;
+import static com.oz_heng.apps.android.musicshop.CatalogueActivity.KEY_WISHLIST_SIZE;
+import static com.oz_heng.apps.android.musicshop.CatalogueActivity.USER_DATA;
 import static com.oz_heng.apps.android.musicshop.CatalogueActivity.catalogue;
 import static com.oz_heng.apps.android.musicshop.CatalogueActivity.wishlist;
 import static com.oz_heng.apps.android.musicshop.Utils.displayToastMessage;
@@ -40,9 +44,25 @@ public class WishlistActivity extends AppCompatActivity {
             actionBar.setTitle(getString(R.string.wishlist));
         }
 
+        // Restore wishlist data from SharedPreferences
+        SharedPreferences sp = getSharedPreferences(USER_DATA, 0);
+        if (sp != null) {
+            Log.v(LOG_TAG, "Restore wishlist from SharedPreferences");
+            int size = sp.getInt(KEY_WISHLIST_SIZE, 0);
+            Log.v(LOG_TAG, "size: " + size);
+            wishlist.clear();
+            for(int i = 0; i < size; i++) {
+                wishlist.add(i, sp.getInt(KEY_WISHLIST + i, -1));
+                Log.v(LOG_TAG, "wishlist.get(" + i + ") :" + wishlist.get(i));
+            }
+        }
+
+        Log.v(LOG_TAG, "wishlist: " + wishlist.toString());
+
         /* Initialise albumWishlist based of wishlist which contains the album numbers
            that have been added to the wishlist.
          */
+        albumWishlist.clear();
         for (int i = 0; i < wishlist.size(); i++) {
             albumWishlist.add(catalogue.get(wishlist.get(i)));
         }
@@ -113,5 +133,22 @@ public class WishlistActivity extends AppCompatActivity {
             default:
                 return super.onContextItemSelected(item);
         }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        Log.v(LOG_TAG, "onStop()");
+        // Save wishlist data into SharedPreferences
+        SharedPreferences sp = getSharedPreferences(USER_DATA, 0);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putInt(KEY_WISHLIST_SIZE, wishlist.size());
+        Log.v(LOG_TAG, "wishlist.size(): " + wishlist.size());
+        for(int i = 0; i < wishlist.size(); i++) {
+            editor.putInt(KEY_WISHLIST + i, wishlist.get(i));
+            Log.v(LOG_TAG, "wishlist.get(" + i +"): " + wishlist.get(i));
+        }
+        editor.apply();
     }
 }
