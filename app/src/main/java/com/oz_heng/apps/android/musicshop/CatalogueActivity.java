@@ -93,19 +93,7 @@ public class CatalogueActivity extends AppCompatActivity {
         }
 
         // Restore wishlist data from SharedPreferences
-        SharedPreferences sp = getSharedPreferences(USER_DATA, 0);
-        if (sp != null) {
-            Log.v(LOG_TAG, "Restore wishlist from SharedPreferences");
-            int size = sp.getInt(KEY_WISHLIST_SIZE, 0);
-            Log.v(LOG_TAG, "size: " + size);
-            wishlist.clear();
-            for(int i = 0; i < size; i++) {
-                wishlist.add(i, sp.getInt(KEY_WISHLIST + i, -1));
-                Log.v(LOG_TAG, "wishlist.get(" + i + "): " + wishlist.get(i));
-            }
-        }
-
-        Log.v(LOG_TAG, "wishlist: " + wishlist.toString());
+        restoreWishlist();
 
         // Set AlbumAdapter to the GridView
         GridView albumGridView = (GridView) findViewById(R.id.catalogue_gridview);
@@ -171,16 +159,35 @@ public class CatalogueActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
 
-        Log.v(LOG_TAG, "onStop()");
+        // Save wishlist into SharedPreferences
+        saveWishlist();
+    }
+
+    /**
+     * Save wishlist data into SharedPreferences
+     */
+    void saveWishlist() {
         // Save wishlist data into SharedPreferences
         SharedPreferences sp = getSharedPreferences(USER_DATA, 0);
         SharedPreferences.Editor editor = sp.edit();
         editor.putInt(KEY_WISHLIST_SIZE, wishlist.size());
-        Log.v(LOG_TAG, "wishlist.size(): " + wishlist.size());
         for(int i = 0; i < wishlist.size(); i++) {
             editor.putInt(KEY_WISHLIST + i, wishlist.get(i));
-            Log.v(LOG_TAG, "wishlist.get(" + i +"): " + wishlist.get(i));
         }
         editor.apply();
+    }
+
+    /**
+     * Restore wishlist from SharedPrefernces
+     */
+    void restoreWishlist() {
+        SharedPreferences sp = getSharedPreferences(USER_DATA, 0);
+        if (sp != null) {
+            int size = sp.getInt(KEY_WISHLIST_SIZE, 0);
+            wishlist.clear();
+            for(int i = 0; i < size; i++) {
+                wishlist.add(i, sp.getInt(KEY_WISHLIST + i, -1));
+            }
+        }
     }
   }

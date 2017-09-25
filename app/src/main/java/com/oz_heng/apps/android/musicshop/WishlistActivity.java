@@ -45,19 +45,7 @@ public class WishlistActivity extends AppCompatActivity {
         }
 
         // Restore wishlist data from SharedPreferences
-        SharedPreferences sp = getSharedPreferences(USER_DATA, 0);
-        if (sp != null) {
-            Log.v(LOG_TAG, "Restore wishlist from SharedPreferences");
-            int size = sp.getInt(KEY_WISHLIST_SIZE, 0);
-            Log.v(LOG_TAG, "size: " + size);
-            wishlist.clear();
-            for(int i = 0; i < size; i++) {
-                wishlist.add(i, sp.getInt(KEY_WISHLIST + i, -1));
-                Log.v(LOG_TAG, "wishlist.get(" + i + ") :" + wishlist.get(i));
-            }
-        }
-
-        Log.v(LOG_TAG, "wishlist: " + wishlist.toString());
+        restoreWishlist();
 
         /* Initialise albumWishlist based of wishlist which contains the album numbers
            that have been added to the wishlist.
@@ -139,8 +127,14 @@ public class WishlistActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
 
-        Log.v(LOG_TAG, "onStop()");
         // Save wishlist data into SharedPreferences
+        saveWishlist();
+    }
+
+    /**
+     * Save wishlist into SharedPreferences.
+     */
+    void saveWishlist() {
         SharedPreferences sp = getSharedPreferences(USER_DATA, 0);
         SharedPreferences.Editor editor = sp.edit();
         editor.putInt(KEY_WISHLIST_SIZE, wishlist.size());
@@ -150,5 +144,19 @@ public class WishlistActivity extends AppCompatActivity {
             Log.v(LOG_TAG, "wishlist.get(" + i +"): " + wishlist.get(i));
         }
         editor.apply();
+    }
+
+    /**
+     * Restore wishlist from SharedPreferences
+     */
+    void restoreWishlist() {
+        SharedPreferences sp = getSharedPreferences(USER_DATA, 0);
+        if (sp != null) {
+            int size = sp.getInt(KEY_WISHLIST_SIZE, 0);
+            wishlist.clear();
+            for(int i = 0; i < size; i++) {
+                wishlist.add(i, sp.getInt(KEY_WISHLIST + i, -1));
+            }
+        }
     }
 }
