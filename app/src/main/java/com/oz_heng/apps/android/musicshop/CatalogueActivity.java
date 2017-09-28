@@ -1,7 +1,6 @@
 package com.oz_heng.apps.android.musicshop;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -25,7 +24,7 @@ import static com.oz_heng.apps.android.musicshop.Utils.displayToastMessage;
  */
 public class CatalogueActivity extends AppCompatActivity {
 
-    static final String LOG_TAG = CatalogueActivity.class.getSimpleName();
+    private static final String LOG_TAG = CatalogueActivity.class.getSimpleName();
 
     // Key for passing the album number as argument through an Intent.
     static final String ALBUM_NUMBER_ARG = "album_number";
@@ -81,6 +80,8 @@ public class CatalogueActivity extends AppCompatActivity {
     static final String KEY_WISHLIST = "wishlist";
     static final String KEY_WISHLIST_SIZE= "wishlist_size";
 
+    private Utils utils = new Utils();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,16 +94,7 @@ public class CatalogueActivity extends AppCompatActivity {
         }
 
         // Restore wishlist data from SharedPreferences
-        SharedPreferences sp = getSharedPreferences(USER_DATA, 0);
-        if (sp != null) {
-            int size = sp.getInt(KEY_WISHLIST_SIZE, 0);
-            Log.v(LOG_TAG, "onCreate() - size: " + size);
-            wishlist.clear();
-            for(int i = 0; i < size; i++) {
-                wishlist.add(i, sp.getInt(KEY_WISHLIST + i, -1));
-                Log.v(LOG_TAG, "OnCreate() - wishlist(" + i + "): " + wishlist.get(i));
-            }
-        }
+        utils.restoreWishlist(this);
 
         Log.v(LOG_TAG, "onCreate() - wislist:" + wishlist.toString());
 
@@ -157,71 +149,13 @@ public class CatalogueActivity extends AppCompatActivity {
                     wishlist.add(albumNumber);
                     displayToastMessage(this, getString(R.string.album_added_to_wishlist,
                             albumNumber + 1));
-                    saveWishlistLastItem();
+                    utils.saveWishlistLastItem(this);
                 }
                 Log.v(LOG_TAG, "wishlist: " + wishlist.toString());
                 return true;
 
             default:
                 return super.onContextItemSelected(item);
-        }
-    }
-
-//    @Override
-//    protected void onStop() {
-//        super.onStop();
-//
-//        // Save wishlist into SharedPreferences
-//        SharedPreferences sp = getSharedPreferences(USER_DATA, 0);
-//        SharedPreferences.Editor editor = sp.edit();
-//        editor.putInt(KEY_WISHLIST_SIZE, wishlist.size());
-//        Log.v(LOG_TAG, "onSTop() - wishlist.size(): " + wishlist.size());
-//        for(int i = 0; i < wishlist.size(); i++) {
-//            editor.putInt(KEY_WISHLIST + i, wishlist.get(i));
-//            Log.v(LOG_TAG, "onStop() - wishlist.get(" + i + "): " + wishlist.get(i));
-//        }
-//        editor.apply();
-//    }
-
-    void saveWishlistLastItem() {
-        SharedPreferences sp = getSharedPreferences(USER_DATA, 0);
-        SharedPreferences.Editor editor = sp.edit();
-        int size = wishlist.size();
-        if (size > 0) {
-            Log.v(LOG_TAG, "saveWishlistLastItem() - size: " + size);
-            editor.putInt(KEY_WISHLIST + (size - 1), wishlist.get(size - 1));
-            editor.putInt(KEY_WISHLIST_SIZE, size);
-            editor.apply();
-            Log.v(LOG_TAG, "saveWishlistLastItem() - wishlist.get("+ (size -1) +"): " +
-            wishlist.get(size -1));
-        }
-    }
-
-    /**
-     * Save wishlist data into SharedPreferences
-     */
-    void saveWishlist() {
-        // Save wishlist data into SharedPreferences
-        SharedPreferences sp = getSharedPreferences(USER_DATA, 0);
-        SharedPreferences.Editor editor = sp.edit();
-        editor.putInt(KEY_WISHLIST_SIZE, wishlist.size());
-        for(int i = 0; i < wishlist.size(); i++) {
-            editor.putInt(KEY_WISHLIST + i, wishlist.get(i));
-        }
-        editor.apply();
-    }
-
-    /**
-     * Restore wishlist from SharedPrefernces
-     */
-    void restoreWishlist() {
-        SharedPreferences sp = getSharedPreferences(USER_DATA, 0);
-        if (sp != null) {
-            int size = sp.getInt(KEY_WISHLIST_SIZE, 0);
-            wishlist.clear();
-            for(int i = 0; i < size; i++) {
-                wishlist.add(i, sp.getInt(KEY_WISHLIST + i, -1));
-            }
         }
     }
   }
