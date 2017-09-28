@@ -35,4 +35,12 @@ public class Album {
     public ArrayList<Song> getSongs() {
         return mSongs;
     }
+
+    /**
+     * Return the album's dummy price.
+     * @return price.
+     */
+    double getPrice(){
+        return mSongs.size() * 1.0;
+    }
 }

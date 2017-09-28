@@ -93,7 +93,18 @@ public class CatalogueActivity extends AppCompatActivity {
         }
 
         // Restore wishlist data from SharedPreferences
-        restoreWishlist();
+        SharedPreferences sp = getSharedPreferences(USER_DATA, 0);
+        if (sp != null) {
+            int size = sp.getInt(KEY_WISHLIST_SIZE, 0);
+            Log.v(LOG_TAG, "onCreate() - size: " + size);
+            wishlist.clear();
+            for(int i = 0; i < size; i++) {
+                wishlist.add(i, sp.getInt(KEY_WISHLIST + i, -1));
+                Log.v(LOG_TAG, "OnCreate() - wishlist(" + i + "): " + wishlist.get(i));
+            }
+        }
+
+        Log.v(LOG_TAG, "onCreate() - wislist:" + wishlist.toString());
 
         // Set AlbumAdapter to the GridView
         GridView albumGridView = (GridView) findViewById(R.id.catalogue_gridview);
@@ -146,6 +157,7 @@ public class CatalogueActivity extends AppCompatActivity {
                     wishlist.add(albumNumber);
                     displayToastMessage(this, getString(R.string.album_added_to_wishlist,
                             albumNumber + 1));
+                    saveWishlistLastItem();
                 }
                 Log.v(LOG_TAG, "wishlist: " + wishlist.toString());
                 return true;
@@ -155,12 +167,34 @@ public class CatalogueActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
+//    @Override
+//    protected void onStop() {
+//        super.onStop();
+//
+//        // Save wishlist into SharedPreferences
+//        SharedPreferences sp = getSharedPreferences(USER_DATA, 0);
+//        SharedPreferences.Editor editor = sp.edit();
+//        editor.putInt(KEY_WISHLIST_SIZE, wishlist.size());
+//        Log.v(LOG_TAG, "onSTop() - wishlist.size(): " + wishlist.size());
+//        for(int i = 0; i < wishlist.size(); i++) {
+//            editor.putInt(KEY_WISHLIST + i, wishlist.get(i));
+//            Log.v(LOG_TAG, "onStop() - wishlist.get(" + i + "): " + wishlist.get(i));
+//        }
+//        editor.apply();
+//    }
 
-        // Save wishlist into SharedPreferences
-        saveWishlist();
+    void saveWishlistLastItem() {
+        SharedPreferences sp = getSharedPreferences(USER_DATA, 0);
+        SharedPreferences.Editor editor = sp.edit();
+        int size = wishlist.size();
+        if (size > 0) {
+            Log.v(LOG_TAG, "saveWishlistLastItem() - size: " + size);
+            editor.putInt(KEY_WISHLIST + (size - 1), wishlist.get(size - 1));
+            editor.putInt(KEY_WISHLIST_SIZE, size);
+            editor.apply();
+            Log.v(LOG_TAG, "saveWishlistLastItem() - wishlist.get("+ (size -1) +"): " +
+            wishlist.get(size -1));
+        }
     }
 
     /**

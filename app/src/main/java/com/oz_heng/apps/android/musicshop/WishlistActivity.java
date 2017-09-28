@@ -45,7 +45,18 @@ public class WishlistActivity extends AppCompatActivity {
         }
 
         // Restore wishlist data from SharedPreferences
-        restoreWishlist();
+        SharedPreferences sp = getSharedPreferences(USER_DATA, 0);
+        if (sp != null) {
+            int size = sp.getInt(KEY_WISHLIST_SIZE, 0);
+            Log.v(LOG_TAG, "onCreate() - size: " + size);
+            wishlist.clear();
+            for(int i = 0; i < size; i++) {
+                wishlist.add(i, sp.getInt(KEY_WISHLIST + i, -1));
+                Log.v(LOG_TAG, "OnCreate() - wishlist(" + i + "): " + wishlist.get(i));
+            }
+        }
+
+        Log.v(LOG_TAG, "onCreate() - wislist:" + wishlist.toString());
 
         /* Initialise albumWishlist based of wishlist which contains the album numbers
            that have been added to the wishlist.
@@ -114,8 +125,7 @@ public class WishlistActivity extends AppCompatActivity {
                 albumAdaper.notifyDataSetChanged();
                 displayToastMessage(this, getString(R.string.album_removed_from_wishlist,
                         albumNumber + 1));
-
-                Log.v(LOG_TAG, "wishlist: " + wishlist.toString());
+                saveWishlist();
                 return true;
 
             default:
@@ -123,13 +133,22 @@ public class WishlistActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-
-        // Save wishlist data into SharedPreferences
-        saveWishlist();
-    }
+//    @Override
+//    protected void onStop() {
+//        super.onStop();
+//
+//        // Save wishlist data into SharedPreferences
+//        SharedPreferences sp = getSharedPreferences(USER_DATA, 0);
+//        SharedPreferences.Editor editor = sp.edit();
+//        editor.putInt(KEY_WISHLIST_SIZE, wishlist.size());
+//        Log.v(LOG_TAG, "onSTop() - wishlist.size(): " + wishlist.size());
+//        for(int i = 0; i < wishlist.size(); i++) {
+//            editor.putInt(KEY_WISHLIST + i, wishlist.get(i));
+//            Log.v(LOG_TAG, "onSTop() - wishlist.get(" + i +"): " + wishlist.get(i));
+//        }
+//        editor.apply();
+//        Log.v(LOG_TAG, "wishlist: " + wishlist.toString());
+//    }
 
     /**
      * Save wishlist into SharedPreferences.
@@ -138,12 +157,13 @@ public class WishlistActivity extends AppCompatActivity {
         SharedPreferences sp = getSharedPreferences(USER_DATA, 0);
         SharedPreferences.Editor editor = sp.edit();
         editor.putInt(KEY_WISHLIST_SIZE, wishlist.size());
-        Log.v(LOG_TAG, "wishlist.size(): " + wishlist.size());
+        Log.v(LOG_TAG, "saveWishlist() - wishlist.size(): " + wishlist.size());
         for(int i = 0; i < wishlist.size(); i++) {
             editor.putInt(KEY_WISHLIST + i, wishlist.get(i));
-            Log.v(LOG_TAG, "wishlist.get(" + i +"): " + wishlist.get(i));
+            Log.v(LOG_TAG, "saveWishlist() - wishlist.get(" + i +"): " + wishlist.get(i));
         }
         editor.apply();
+        Log.v(LOG_TAG, "saveWishlist() - wishlist: " + wishlist.toString());
     }
 
     /**
