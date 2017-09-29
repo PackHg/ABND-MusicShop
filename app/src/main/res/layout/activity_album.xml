@@ -8,36 +8,43 @@
     android:orientation="vertical"
     tools:context="com.oz_heng.apps.android.musicshop.AlbumActivity">
 
-    <TextView
-        android:id="@+id/album_about"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="About this activity" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_margin_half"
-        android:gravity="center"
+        android:baselineAligned="false"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/album_read_more"
-            style="@style/ButtonStyle"
-            android:text="@string/read_more" />
+        <ScrollView style="@style/PurposeScrollViewStyle">
 
-        <Button
-            android:id="@+id/album_add_to_whishlist"
-            style="@style/ButtonStyle"
-            android:layout_marginLeft="@dimen/activity_margin_half"
-            android:layout_marginStart="@dimen/activity_margin_half"
-            android:text="@string/add_to_wishlist" />
+            <TextView
+                android:id="@+id/album_purpose"
+                style="@style/PurposeTextViewStyle"
+                android:text="@string/album_purpose" />
+
+        </ScrollView>
+
+        <LinearLayout style="@style/VerticalButtonsLinearLayoutStyle">
+
+            <Button
+                android:id="@+id/album_read_more"
+                style="@style/ButtonStyle"
+                android:text="@string/read_more" />
+
+            <Button
+                android:id="@+id/album_add_to_whishlist"
+                style="@style/ButtonStyle"
+                android:layout_marginTop="@dimen/activity_margin_half"
+                android:text="@string/add_to_wishlist" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout style="@style/HorizontalButtonsLinearLayoutStyle">
 
         <Button
             android:id="@+id/album_buy"
             style="@style/ButtonStyle"
-            android:layout_marginLeft="@dimen/activity_margin_half"
-            android:layout_marginStart="@dimen/activity_margin_half"
             android:text="@string/buy" />
 
         <Button
@@ -45,7 +52,7 @@
             style="@style/ButtonStyle"
             android:layout_marginLeft="@dimen/activity_margin_half"
             android:layout_marginStart="@dimen/activity_margin_half"
-            android:text="@string/buy" />
+            android:text="@string/catalogue" />
 
     </LinearLayout>
 

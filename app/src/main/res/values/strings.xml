@@ -13,6 +13,14 @@
     <string name="buy">Buy</string>
     <string name="buy_album">Buy album</string>
 
+    <string name="catalogue_purpose">"Toronto and London are among the cities most at risk of a housing bubble as economic optimism and low borrowing costs push up property values in urban areas worldwide, according to UBS Group AG.
+
+        Vancouver and Sydney were also in the top five in terms of risk, the Swiss bank said in a report published on Thursday."</string>
+    <string name="wishlist_purpose">@string/catalogue_purpose</string>
+    <string name="album_purpose">@string/catalogue_purpose</string>
+    <string name="readmore_purpose">@string/catalogue_purpose</string>
+    <string name="apyment_purpose">@string/catalogue_purpose</string>
+
     <!-- Wishlist -->
     <string name="wishlist_empty">Wishlist is empty</string>
     <string name="album_already_in_wishlist">Album %1$d is already in the wishlist</string>
