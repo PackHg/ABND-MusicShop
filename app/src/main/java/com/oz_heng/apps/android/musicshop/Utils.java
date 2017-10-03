@@ -16,7 +16,7 @@ import static com.oz_heng.apps.android.musicshop.CatalogueActivity.wishlist;
 class Utils {
     private final static String LOG_TAG = Utils.class.getSimpleName();
 
-    Utils() {
+    private Utils() {
     }
 
     /**
@@ -30,7 +30,7 @@ class Utils {
     /**
      * Save wishlist's last added item and size into SharedPreferences.
      */
-    void saveWishlistLastItem(Context context) {
+    static void saveWishlistLastItem(Context context) {
         SharedPreferences sp =  context.getSharedPreferences(USER_DATA, 0);
         SharedPreferences.Editor editor = sp.edit();
         int size = wishlist.size();
@@ -47,7 +47,7 @@ class Utils {
     /**
      * Save wishlist into SharedPreferences.
      */
-    void saveWishlist(Context context) {
+     static void saveWishlist(Context context) {
         SharedPreferences sp = context.getSharedPreferences(USER_DATA, 0);
         SharedPreferences.Editor editor = sp.edit();
         editor.putInt(KEY_WISHLIST_SIZE, wishlist.size());
@@ -61,9 +61,9 @@ class Utils {
     }
 
     /**
-     * Restore wishlist from SharedPrefernces
+     * Restore wishlist from SharedPrefernces.
      */
-    void restoreWishlist(Context context) {
+    static void restoreWishlist(Context context) {
         SharedPreferences sp = context.getSharedPreferences(USER_DATA, 0);
         if (sp != null) {
             int size = sp.getInt(KEY_WISHLIST_SIZE, 0);

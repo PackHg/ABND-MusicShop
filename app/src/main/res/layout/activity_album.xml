@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- Layout of AlbumActivity -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -23,45 +25,47 @@
 
         </ScrollView>
 
-        <LinearLayout style="@style/VerticalButtonsLinearLayoutStyle">
+        <ScrollView style="@style/VerticalButtonsScrollViewStyle">
 
-            <Button
-                android:id="@+id/album_read_more"
-                style="@style/ButtonStyle"
-                android:text="@string/read_more" />
+            <LinearLayout style="@style/VerticalButtonsLinearLayoutStyle">
 
-            <Button
-                android:id="@+id/album_add_to_whishlist"
-                style="@style/ButtonStyle"
-                android:layout_marginTop="@dimen/activity_margin_half"
-                android:text="@string/add_to_wishlist" />
+                <Button
+                    android:id="@+id/album_readmore"
+                    style="@style/ButtonStyle"
+                    android:text="@string/read_more" />
 
-        </LinearLayout>
+                <Button
+                    android:id="@+id/album_buy"
+                    style="@style/ButtonStyle"
+                    android:layout_marginTop="@dimen/activity_margin_half"
+                    android:text="@string/buy" />
 
-    </LinearLayout>
+                <Button
+                    android:id="@+id/album_add_or_remove_whishlist"
+                    style="@style/ButtonStyle"
+                    android:layout_marginTop="@dimen/activity_margin_half"
+                    android:text="@string/add_to_wishlist" />
 
-    <LinearLayout style="@style/HorizontalButtonsLinearLayoutStyle">
+                <Button
+                    android:id="@+id/album_go_to_whishlist"
+                    style="@style/ButtonStyle"
+                    android:layout_marginTop="@dimen/activity_margin_half"
+                    android:text="@string/wishlist" />
 
-        <Button
-            android:id="@+id/album_buy"
-            style="@style/ButtonStyle"
-            android:text="@string/buy" />
+                <Button
+                    android:id="@+id/album_catalogue"
+                    style="@style/ButtonStyle"
+                    android:layout_marginTop="@dimen/activity_margin_half"
+                    android:text="@string/catalogue" />
 
-        <Button
-            android:id="@+id/catalogue"
-            style="@style/ButtonStyle"
-            android:layout_marginLeft="@dimen/activity_margin_half"
-            android:layout_marginStart="@dimen/activity_margin_half"
-            android:text="@string/catalogue" />
+            </LinearLayout>
+
+        </ScrollView>
 
     </LinearLayout>
 
     <ListView
         android:id="@+id/album_list_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/activity_margin"
-        android:drawSelectorOnTop="true"
-        android:orientation="vertical" />
+        style="@style/ListViewStyle" />
 
 </LinearLayout>

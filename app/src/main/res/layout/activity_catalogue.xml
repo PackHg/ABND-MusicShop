@@ -25,14 +25,18 @@
 
         </ScrollView>
 
-        <LinearLayout style="@style/VerticalButtonsLinearLayoutStyle">
+        <ScrollView style="@style/VerticalButtonsScrollViewStyle">
 
-            <Button
-                android:id="@+id/catalogue_goto_wishlist"
-                style="@style/ButtonStyle"
-                android:text="@string/wishlist" />
+            <LinearLayout style="@style/VerticalButtonsLinearLayoutStyle">
 
-        </LinearLayout>
+                <Button
+                    android:id="@+id/catalogue_goto_wishlist"
+                    style="@style/ButtonStyle"
+                    android:text="@string/wishlist" />
+
+            </LinearLayout>
+
+        </ScrollView>
 
     </LinearLayout>
 

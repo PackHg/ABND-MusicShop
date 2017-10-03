@@ -6,7 +6,7 @@
     <string name="payment">Payment</string>
 
     <string name="read_more">Read more</string>
-    <string name="about_the_alubm">About the Album</string>
+    <string name="about_the_album">About the Album</string>
     <string name="go_to_album">Go to album</string>
     <string name="add_to_wishlist">Add to wishlist</string>
     <string name="remove_from_wishlist">Remove from wishlist</string>
@@ -15,7 +15,9 @@
 
     <string name="catalogue_purpose">"Toronto and London are among the cities most at risk of a housing bubble as economic optimism and low borrowing costs push up property values in urban areas worldwide, according to UBS Group AG.
 
-        Vancouver and Sydney were also in the top five in terms of risk, the Swiss bank said in a report published on Thursday."</string>
+        Vancouver and Sydney were also in the top five in terms of risk, the Swiss bank said in a report published on Thursday.
+
+        Toronto and London are among the cities most at risk of a housing bubble as economic optimism and low borrowing costs push up property values in urban areas worldwide, according to UBS Group AG."</string>
     <string name="wishlist_purpose">@string/catalogue_purpose</string>
     <string name="album_purpose">@string/catalogue_purpose</string>
     <string name="readmore_purpose">@string/catalogue_purpose</string>
@@ -26,5 +28,8 @@
     <string name="album_already_in_wishlist">Album %1$d is already in the wishlist</string>
     <string name="album_added_to_wishlist">Album %1$d is added to the wishlist</string>
     <string name="album_removed_from_wishlist">Album %1$d is removed from the wishlist</string>
+
+    <!-- Album -->
+    <string name="listview_is_mockup">This ListView is a mockup. Song playback is not implemented.</string>
 
 </resources>

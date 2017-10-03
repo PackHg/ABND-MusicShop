@@ -32,7 +32,7 @@ public class Album {
         return mTitle;
     }
 
-    public ArrayList<Song> getSongs() {
+    ArrayList<Song> getSongs() {
         return mSongs;
     }
 

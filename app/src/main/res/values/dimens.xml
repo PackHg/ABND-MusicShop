@@ -10,7 +10,10 @@
     <!-- Height of each list album item -->
     <dimen name="list_album_item_height">88dp</dimen>
 
+    <!-- Height of each list song item -->
+    <dimen name="list_song_item_height">44dp</dimen>
+
     <!-- Height of the TextView used to sum up the purpose of the Activity -->
-    <dimen name="textview_purpose_height">100dp</dimen>
+    <dimen name="textview_purpose_height">150dp</dimen>
 
 </resources>

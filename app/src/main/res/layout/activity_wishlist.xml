@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<!-- Layout of WishlistActivity -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -24,14 +25,18 @@
 
         </ScrollView>
 
-        <LinearLayout style="@style/VerticalButtonsLinearLayoutStyle">
+        <ScrollView style="@style/VerticalButtonsScrollViewStyle">
 
-            <Button
-                android:id="@+id/wishlist_goto_catalogue"
-                style="@style/ButtonStyle"
-                android:text="@string/catalogue" />
+            <LinearLayout style="@style/VerticalButtonsLinearLayoutStyle">
 
-        </LinearLayout>
+                <Button
+                    android:id="@+id/wishlist_goto_catalogue"
+                    style="@style/ButtonStyle"
+                    android:text="@string/catalogue" />
+
+            </LinearLayout>
+
+        </ScrollView>
 
     </LinearLayout>
 

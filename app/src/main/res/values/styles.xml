@@ -8,14 +8,6 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="ButtonStyle">
-        <item name="android:layout_width">80dp</item>
-        <item name="android:layout_height">56dp</item>
-        <item name="android:textAppearance">?android:textAppearanceSmall</item>
-        <item name="android:textColor">@color/colorWhite</item>
-        <item name="android:background">@color/colorAccent</item>
-    </style>
-
     <style name="GridViewStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
@@ -29,26 +21,43 @@
         <item name="android:background">@color/colorGray300</item>
     </style>
 
+    <style name="ListViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginTop">@dimen/activity_margin</item>
+        <item name="android:padding">@dimen/activity_margin_quarter</item>
+        <item name="android:drawSelectorOnTop">true</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@color/colorGray300</item>
+    </style>
+
+    <style name="ButtonStyle">
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:textAppearance">?android:textAppearanceSmall</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:background">@color/colorAccent</item>
+        <item name="android:gravity">center</item>
+    </style>
+
     <style name="PurposeScrollViewStyle">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">@dimen/textview_purpose_height</item>
-        <item name="android:layout_weight">3</item>
+        <item name="android:layout_weight">2</item>
         <item name="android:orientation">vertical</item>
     </style>
 
     <style name="PurposeTextViewStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginEnd">@dimen/activity_margin_half</item>
         <item name="android:layout_marginRight">@dimen/activity_margin_half</item>
     </style>
 
     <style name="VerticalButtonsLinearLayoutStyle">
-        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginLeft">@dimen/activity_margin_half</item>
-        <item name="android:layout_marginStart">@dimen/activity_margin_half</item>
-        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginRight">@dimen/activity_margin_half</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:orientation">vertical</item>
     </style>
@@ -58,6 +67,13 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">@dimen/activity_margin</item>
         <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="VerticalButtonsScrollViewStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/textview_purpose_height</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:orientation">vertical</item>
     </style>
 
 </resources>

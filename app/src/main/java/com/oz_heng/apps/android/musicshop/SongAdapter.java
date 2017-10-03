@@ -16,9 +16,9 @@ import java.util.ArrayList;
  * Created by Pack Heng on 16/09/17
  * pack@oz-heng.com
  */
-public class SongAdapter extends ArrayAdapter<Song> {
+class SongAdapter extends ArrayAdapter<Song> {
 
-    public SongAdapter(@NonNull Context context, @NonNull ArrayList<Song> songs) {
+    SongAdapter(@NonNull Context context, @NonNull ArrayList<Song> songs) {
         super(context, 0, songs);
     }
 

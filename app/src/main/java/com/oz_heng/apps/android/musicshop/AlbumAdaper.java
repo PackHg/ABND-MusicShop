@@ -41,7 +41,7 @@ public class AlbumAdaper extends ArrayAdapter<Album> {
             titleTextView.setText(album.getTitle());
 
             TextView priceTextView = albumView.findViewById(R.id.album_price);
-            priceTextView.setText(String.format("$%.2f%n", album.getPrice()));
+            priceTextView.setText(String.format("$%.2f%n", album.getPrice()).trim());
         }
 
         return albumView;

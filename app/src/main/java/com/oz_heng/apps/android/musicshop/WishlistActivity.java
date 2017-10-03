@@ -20,15 +20,15 @@ import static com.oz_heng.apps.android.musicshop.CatalogueActivity.ALBUM_NUMBER_
 import static com.oz_heng.apps.android.musicshop.CatalogueActivity.catalogue;
 import static com.oz_heng.apps.android.musicshop.CatalogueActivity.wishlist;
 import static com.oz_heng.apps.android.musicshop.Utils.displayToastMessage;
+import static com.oz_heng.apps.android.musicshop.Utils.restoreWishlist;
+import static com.oz_heng.apps.android.musicshop.Utils.saveWishlist;
 
 public class WishlistActivity extends AppCompatActivity {
     private static final String LOG_TAG = WishlistActivity.class.getSimpleName();
 
-    private static ArrayList<Album> albumWishlist = new ArrayList<>();
+    private static ArrayList<Album> mAlbumWishlist = new ArrayList<>();
 
-    private GridView albumGridView;
-    private AlbumAdaper albumAdaper;
-    private Utils utils = new Utils();
+    private AlbumAdaper mAlbumAdaper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,22 +42,22 @@ public class WishlistActivity extends AppCompatActivity {
         }
 
         // Restore wishlist data from SharedPreferences
-        utils.restoreWishlist(this);
+        restoreWishlist(this);
 
         Log.v(LOG_TAG, "onCreate() - wislist:" + wishlist.toString());
 
-        /* Initialise albumWishlist based of wishlist which contains the album numbers
+        /* Initialise mAlbumWishlist based of wishlist which contains the album numbers
            that have been added to the wishlist.
          */
-        albumWishlist.clear();
+        mAlbumWishlist.clear();
         for (int i = 0; i < wishlist.size(); i++) {
-            albumWishlist.add(catalogue.get(wishlist.get(i)));
+            mAlbumWishlist.add(catalogue.get(wishlist.get(i)));
         }
 
         // Set AlbumAdpater on gridiew with albumWishList as data source.
-        albumGridView = (GridView) findViewById(R.id.wishlist_gridview);
-        albumAdaper = new AlbumAdaper(this, albumWishlist);
-        albumGridView.setAdapter(albumAdaper);
+        GridView albumGridView = (GridView) findViewById(R.id.wishlist_gridview);
+        mAlbumAdaper = new AlbumAdaper(this, mAlbumWishlist);
+        albumGridView.setAdapter(mAlbumAdaper);
 
         /* Set empty view on albumGridView, so that it only shows when the wishlist
            is empty.
@@ -108,12 +108,12 @@ public class WishlistActivity extends AppCompatActivity {
                 return true;
 
             case R.id.album_item_cmenu_option_remove_from_wishlist:
-                albumWishlist.remove(catalogue.get(wishlist.get(itemNumber)));
+                mAlbumWishlist.remove(catalogue.get(wishlist.get(itemNumber)));
                 wishlist.remove(itemNumber);
-                albumAdaper.notifyDataSetChanged();
+                mAlbumAdaper.notifyDataSetChanged();
                 displayToastMessage(this, getString(R.string.album_removed_from_wishlist,
                         albumNumber + 1));
-                utils.saveWishlist(this);
+                saveWishlist(this);
                 return true;
 
             default:

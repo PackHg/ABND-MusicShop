@@ -12,12 +12,13 @@ import android.view.View;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 import static com.oz_heng.apps.android.musicshop.Utils.displayToastMessage;
+import static com.oz_heng.apps.android.musicshop.Utils.restoreWishlist;
+import static com.oz_heng.apps.android.musicshop.Utils.saveWishlistLastItem;
 
 /**
  * {@link CatalogueActivity} displays a list of albums.
@@ -37,7 +38,7 @@ public class CatalogueActivity extends AppCompatActivity {
                             new Song("Song 1-05"), new Song("Song 1-06"), new Song("Song 1-07"),
                             new Song("Song 1-08"), new Song("Song 1-09"), new Song("Song 1-10")))),
                     new Album("Album 2", new ArrayList<>(Arrays.asList(new Song("Song 2-01"),
-                            new Song("Song 2-02"), new Song("Song 2-03"), new Song("Song 2-05")))),
+                            new Song("Song 2-02"), new Song("Song 2-03"), new Song("Song 2-04")))),
                     new Album("Album 3", new ArrayList<>(Arrays.asList(new Song("Song 3-01"),
                             new Song("Song 3-02"), new Song("Song 3-03"), new Song("Song 3-04"),
                             new Song("Song 3-05"), new Song("Song 3-06"), new Song("Song 3-07"),
@@ -80,8 +81,6 @@ public class CatalogueActivity extends AppCompatActivity {
     static final String KEY_WISHLIST = "wishlist";
     static final String KEY_WISHLIST_SIZE= "wishlist_size";
 
-    private Utils utils = new Utils();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,7 +93,7 @@ public class CatalogueActivity extends AppCompatActivity {
         }
 
         // Restore wishlist data from SharedPreferences
-        utils.restoreWishlist(this);
+        restoreWishlist(this);
 
         Log.v(LOG_TAG, "onCreate() - wislist:" + wishlist.toString());
 
@@ -132,13 +131,15 @@ public class CatalogueActivity extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.album_item_cmenu_option_go_to_album:
-                Intent intent = new Intent(CatalogueActivity.this, AlbumActivity.class);
-                intent.putExtra(ALBUM_NUMBER_ARG, albumNumber);
-                startActivity(intent);
+                Intent albumIntent = new Intent(CatalogueActivity.this, AlbumActivity.class);
+                albumIntent.putExtra(ALBUM_NUMBER_ARG, albumNumber);
+                startActivity(albumIntent);
                 return true;
 
             case R.id.album_item_cmenu_option_buy_album:
-                Toast.makeText(this, "Album " + (albumNumber +1) + " - Buy album", Toast.LENGTH_SHORT).show();
+                Intent paymentIntent = new Intent(CatalogueActivity.this, PaymentActivity.class);
+                paymentIntent.putExtra(ALBUM_NUMBER_ARG, albumNumber);
+                startActivity(paymentIntent);
                 return true;
 
             case R.id.album_item_cmenu_option_add_to_wishlist:
@@ -149,7 +150,7 @@ public class CatalogueActivity extends AppCompatActivity {
                     wishlist.add(albumNumber);
                     displayToastMessage(this, getString(R.string.album_added_to_wishlist,
                             albumNumber + 1));
-                    utils.saveWishlistLastItem(this);
+                    saveWishlistLastItem(this);
                 }
                 Log.v(LOG_TAG, "wishlist: " + wishlist.toString());
                 return true;
