@@ -22,7 +22,6 @@ public class AlbumActivity extends AppCompatActivity {
     private static final String LOG_TAG = AlbumActivity.class.getSimpleName();
 
     private int mAlbumNumber = 0;
-    private boolean mIsInWishlist = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +36,8 @@ public class AlbumActivity extends AppCompatActivity {
         // set the Album number in the action bar.
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setTitle(getString(R.string.album) + " " + (mAlbumNumber + 1));
+            String title = getString(R.string.album_number, mAlbumNumber + 1);
+            actionBar.setTitle(title);
         }
 
         // Restore wishlist data from SharedPreferences.
@@ -49,7 +49,7 @@ public class AlbumActivity extends AppCompatActivity {
            remove from wishlist.
          */
         final Button wishlistButton = (Button) findViewById(R.id.album_add_or_remove_whishlist);
-        mIsInWishlist = wishlist.contains(mAlbumNumber);
+        boolean mIsInWishlist = wishlist.contains(mAlbumNumber);
         if (mIsInWishlist) {
             wishlistButton.setText(getString(R.string.remove_from_wishlist));
         } else {
@@ -120,8 +120,8 @@ public class AlbumActivity extends AppCompatActivity {
             }
         });
 
-        // Set the button R.id.album_readmore to start the ReadMoreActivity.
-        Button readMoreButton = (Button) findViewById(R.id.album_readmore);
+        // Set the button R.id.album_readmore to start the ReadMoreDialogActivity.
+        Button readMoreButton = (Button) findViewById(R.id.album_read_more);
         readMoreButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -30,7 +30,7 @@
             <LinearLayout style="@style/VerticalButtonsLinearLayoutStyle">
 
                 <Button
-                    android:id="@+id/album_readmore"
+                    android:id="@+id/album_read_more"
                     style="@style/ButtonStyle"
                     android:text="@string/read_more" />
 

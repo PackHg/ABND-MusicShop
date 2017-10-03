@@ -12,6 +12,7 @@
     <string name="remove_from_wishlist">Remove from wishlist</string>
     <string name="buy">Buy</string>
     <string name="buy_album">Buy album</string>
+    <string name="ok">OK</string>
 
     <string name="catalogue_purpose">"Toronto and London are among the cities most at risk of a housing bubble as economic optimism and low borrowing costs push up property values in urban areas worldwide, according to UBS Group AG.
 
@@ -20,7 +21,6 @@
         Toronto and London are among the cities most at risk of a housing bubble as economic optimism and low borrowing costs push up property values in urban areas worldwide, according to UBS Group AG."</string>
     <string name="wishlist_purpose">@string/catalogue_purpose</string>
     <string name="album_purpose">@string/catalogue_purpose</string>
-    <string name="readmore_purpose">@string/catalogue_purpose</string>
     <string name="apyment_purpose">@string/catalogue_purpose</string>
 
     <!-- Wishlist -->
@@ -30,6 +30,26 @@
     <string name="album_removed_from_wishlist">Album %1$d is removed from the wishlist</string>
 
     <!-- Album -->
+    <string name="album_number">Album %1$d</string>
     <string name="listview_is_mockup">This ListView is a mockup. Song playback is not implemented.</string>
+
+    <!-- Read More -->
+    <string name="album_detail">Album %1$d detail</string>
+    <string name="read_more_purpose">This screen aims to provide detail about the album.\nThe following fields are a mockup.</string>
+    <string name="read_more_about_album">Information about the singer or band, the popularity of the album, etc.</string>
+    <string name="read_more_released_on_label">Released on</string>
+    <string name="read_more_released_date">Released date (eg. 26 May 2017)</string>
+    <string name="read_more_genre_label">Genre</string>
+    <string name="read_more_genre">Music genre (eg. Pop, South America, World)</string>
+    <string name="read_more_access_type_label">Access type</string>
+    <string name="read_more_access_type">Streaming or by download to your computer and/or device</string>
+    <string name="read_more_playback_information_label">Playback information</string>
+    <string name="read_more_playback_information">Via your favourite music player app, or by exporting MP3 files to your computer and playing on any MP3 compatible music player</string>
+    <string name="read_more_copyright_label">Copyright</string>
+    <string name="read_more_copyright">Copyright information</string>
+    <string name="read_more_file_type_label">File type</string>
+    <string name="read_more_file_type">MP3</string>
+    <string name="read_more_internet_connection_label">Internet connection</string>
+    <string name="read_more_internet_connection">Required for streaming or downloading</string>
 
 </resources>

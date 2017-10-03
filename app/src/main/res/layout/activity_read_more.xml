@@ -1,23 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<!-- Layout of ReadMoreActivity -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:layout_height="wrap_content"
     android:layout_margin="@dimen/activity_margin"
+    android:orientation="vertical"
     tools:context="com.oz_heng.apps.android.musicshop.ReadMoreActivity">
 
-    <TextView
-        android:id="@+id/payment_about"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="About this activity" />
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/readmore_catalogue"
-        style="@style/ButtonStyle"
-        android:layout_marginTop="@dimen/activity_margin"
-        android:text="@string/catalogue" />
+        <TextView
+            android:id="@+id/read_more_purpose"
+            style="@style/PurposeTextViewStyle"
+            android:text="@string/read_more_purpose" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/read_more_about_album"
+            style="@style/ReadMoreFieldStyle"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:text="@string/read_more_about_album" />
+
+        <TextView
+            style="@style/ReadMoreLabelStyle"
+            android:text="@string/read_more_released_on_label" />
+
+        <TextView
+            android:id="@+id/read_more_released_date"
+            style="@style/ReadMoreFieldStyle"
+            android:text="@string/read_more_released_date" />
+
+        <TextView
+            style="@style/ReadMoreLabelStyle"
+            android:text="@string/read_more_genre_label" />
+
+        <TextView
+            android:id="@+id/read_more_genre"
+            style="@style/ReadMoreFieldStyle"
+            android:text="@string/read_more_genre" />
+
+        <TextView
+            style="@style/ReadMoreLabelStyle"
+            android:text="@string/read_more_access_type_label" />
+
+        <TextView
+            android:id="@+id/read_more_access_type"
+            style="@style/ReadMoreFieldStyle"
+            android:text="@string/read_more_access_type" />
+
+        <TextView
+            style="@style/ReadMoreLabelStyle"
+            android:text="@string/read_more_playback_information_label" />
+
+        <TextView
+            android:id="@+id/read_more_playback_information"
+            style="@style/ReadMoreFieldStyle"
+            android:text="@string/read_more_playback_information" />
+
+        <TextView
+            style="@style/ReadMoreLabelStyle"
+            android:text="@string/read_more_copyright_label" />
+
+        <TextView
+            android:id="@+id/read_more_copyright"
+            style="@style/ReadMoreFieldStyle"
+            android:text="@string/read_more_copyright" />
+
+        <TextView
+            style="@style/ReadMoreLabelStyle"
+            android:text="@string/read_more_file_type_label" />
+
+        <TextView
+            android:id="@+id/read_more_file_type"
+            style="@style/ReadMoreFieldStyle"
+            android:text="@string/read_more_file_type" />
+
+        <TextView
+            style="@style/ReadMoreLabelStyle"
+            android:text="@string/read_more_internet_connection_label" />
+
+        <TextView
+            android:id="@+id/read_more_internet_connection"
+            style="@style/ReadMoreFieldStyle"
+            android:text="@string/read_more_internet_connection" />
+
+        <Button
+            android:id="@+id/read_more_button_ok"
+            style="@style/ButtonStyle"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/activity_margin_half"
+            android:layout_marginRight="@dimen/activity_margin_half"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:text="@string/ok" />
+
+
+    </LinearLayout>
+
+
+</ScrollView>

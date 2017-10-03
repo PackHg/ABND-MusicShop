@@ -17,9 +17,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".AlbumActivity" />
-        <activity android:name=".ReadMoreActivity" />
         <activity android:name=".WishlistActivity" />
-        <activity android:name=".PaymentActivity"></activity>
+        <activity android:name=".PaymentActivity" />
+        <activity android:name=".ReadMoreActivity"></activity>
     </application>
 
 </manifest>
