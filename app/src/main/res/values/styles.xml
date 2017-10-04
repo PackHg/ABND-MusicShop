@@ -77,7 +77,7 @@
         <item name="android:orientation">vertical</item>
     </style>
 
-    <style name="ReadMoreLabelStyle">
+    <style name="TextViewLabelFieldStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">@dimen/activity_margin</item>
@@ -87,7 +87,7 @@
         <item name="android:textAppearance">?android:textAppearanceSmall</item>
     </style>
 
-    <style name="ReadMoreFieldStyle">
+    <style name="TextViewFieldStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginRight">@dimen/activity_margin_half</item>

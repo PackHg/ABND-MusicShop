@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -98,13 +97,15 @@ public class WishlistActivity extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.album_item_cmenu_option_go_to_album:
-                Intent intent = new Intent(WishlistActivity.this, AlbumActivity.class);
-                intent.putExtra(ALBUM_NUMBER_ARG, albumNumber);
-                startActivity(intent);
+                Intent albumIntent = new Intent(WishlistActivity.this, AlbumActivity.class);
+                albumIntent.putExtra(ALBUM_NUMBER_ARG, albumNumber);
+                startActivity(albumIntent);
                 return true;
 
             case R.id.album_item_cmenu_option_buy_album:
-                Toast.makeText(this, "Album " + (albumNumber + 1) + " - Buy album", Toast.LENGTH_SHORT).show();
+                Intent paymetIntent = new Intent(WishlistActivity.this, PaymentActivity.class);
+                paymetIntent.putExtra(ALBUM_NUMBER_ARG, albumNumber);
+                startActivity(paymetIntent);
                 return true;
 
             case R.id.album_item_cmenu_option_remove_from_wishlist:

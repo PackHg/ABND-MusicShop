@@ -22,71 +22,71 @@
 
         <TextView
             android:id="@+id/read_more_about_album"
-            style="@style/ReadMoreFieldStyle"
+            style="@style/TextViewFieldStyle"
             android:layout_marginTop="@dimen/activity_margin"
             android:text="@string/read_more_about_album" />
 
         <TextView
-            style="@style/ReadMoreLabelStyle"
+            style="@style/TextViewLabelFieldStyle"
             android:text="@string/read_more_released_on_label" />
 
         <TextView
             android:id="@+id/read_more_released_date"
-            style="@style/ReadMoreFieldStyle"
+            style="@style/TextViewFieldStyle"
             android:text="@string/read_more_released_date" />
 
         <TextView
-            style="@style/ReadMoreLabelStyle"
+            style="@style/TextViewLabelFieldStyle"
             android:text="@string/read_more_genre_label" />
 
         <TextView
             android:id="@+id/read_more_genre"
-            style="@style/ReadMoreFieldStyle"
+            style="@style/TextViewFieldStyle"
             android:text="@string/read_more_genre" />
 
         <TextView
-            style="@style/ReadMoreLabelStyle"
+            style="@style/TextViewLabelFieldStyle"
             android:text="@string/read_more_access_type_label" />
 
         <TextView
             android:id="@+id/read_more_access_type"
-            style="@style/ReadMoreFieldStyle"
+            style="@style/TextViewFieldStyle"
             android:text="@string/read_more_access_type" />
 
         <TextView
-            style="@style/ReadMoreLabelStyle"
+            style="@style/TextViewLabelFieldStyle"
             android:text="@string/read_more_playback_information_label" />
 
         <TextView
             android:id="@+id/read_more_playback_information"
-            style="@style/ReadMoreFieldStyle"
+            style="@style/TextViewFieldStyle"
             android:text="@string/read_more_playback_information" />
 
         <TextView
-            style="@style/ReadMoreLabelStyle"
+            style="@style/TextViewLabelFieldStyle"
             android:text="@string/read_more_copyright_label" />
 
         <TextView
             android:id="@+id/read_more_copyright"
-            style="@style/ReadMoreFieldStyle"
+            style="@style/TextViewFieldStyle"
             android:text="@string/read_more_copyright" />
 
         <TextView
-            style="@style/ReadMoreLabelStyle"
+            style="@style/TextViewLabelFieldStyle"
             android:text="@string/read_more_file_type_label" />
 
         <TextView
             android:id="@+id/read_more_file_type"
-            style="@style/ReadMoreFieldStyle"
+            style="@style/TextViewFieldStyle"
             android:text="@string/read_more_file_type" />
 
         <TextView
-            style="@style/ReadMoreLabelStyle"
+            style="@style/TextViewLabelFieldStyle"
             android:text="@string/read_more_internet_connection_label" />
 
         <TextView
             android:id="@+id/read_more_internet_connection"
-            style="@style/ReadMoreFieldStyle"
+            style="@style/TextViewFieldStyle"
             android:text="@string/read_more_internet_connection" />
 
         <Button

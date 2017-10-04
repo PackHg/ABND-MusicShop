@@ -19,11 +19,10 @@
         Vancouver and Sydney were also in the top five in terms of risk, the Swiss bank said in a report published on Thursday.
 
         Toronto and London are among the cities most at risk of a housing bubble as economic optimism and low borrowing costs push up property values in urban areas worldwide, according to UBS Group AG."</string>
-    <string name="wishlist_purpose">@string/catalogue_purpose</string>
     <string name="album_purpose">@string/catalogue_purpose</string>
-    <string name="apyment_purpose">@string/catalogue_purpose</string>
 
     <!-- Wishlist -->
+    <string name="wishlist_purpose">@string/catalogue_purpose</string>
     <string name="wishlist_empty">Wishlist is empty</string>
     <string name="album_already_in_wishlist">Album %1$d is already in the wishlist</string>
     <string name="album_added_to_wishlist">Album %1$d is added to the wishlist</string>
@@ -51,5 +50,14 @@
     <string name="read_more_file_type">MP3</string>
     <string name="read_more_internet_connection_label">Internet connection</string>
     <string name="read_more_internet_connection">Required for streaming or downloading</string>
+
+    <!-- Payment -->
+    <string name="payment_purpose">This screen is about the payment of the selected album.\n\nGoogle Payment API can be used to enable checkout for customers in this app.\n\nThe following steps are required in order to use the Google Payment API:</string>
+    <string name="set_up_API_label">1. Set up Google Payment API</string>
+    <string name="set_up_API_web">developers.google.com/payments/setup</string>
+    <string name="integrate_with_API_label">2. Integrate this app with the Google Payment API</string>
+    <string name="integrate_with_API_web">developers.google.com/payments/tutorial</string>
+    <string name="test_and_deploy_label">3. Test and deploy</string>
+    <string name="test_and_deploy_web">developers.google.com/payments/test-and-deploy</string>
 
 </resources>

@@ -1,23 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:layout_height="wrap_content"
     android:layout_margin="@dimen/activity_margin"
+    android:orientation="vertical"
     tools:context="com.oz_heng.apps.android.musicshop.PaymentActivity">
 
-    <TextView
-        android:id="@+id/payment_about"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="About this activity" />
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/payment_catalogue"
-        style="@style/ButtonStyle"
-        android:layout_marginTop="@dimen/activity_margin"
-        android:text="@string/catalogue" />
+        <TextView
+            android:id="@+id/payment_purpose"
+            style="@style/PurposeTextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/payment_purpose" />
 
-</LinearLayout>
+        <TextView
+            style="@style/TextViewLabelFieldStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/set_up_API_label" />
+
+        <TextView
+            style="@style/TextViewFieldStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoLink="web"
+            android:text="@string/set_up_API_web" />
+
+        <TextView
+            style="@style/TextViewLabelFieldStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/integrate_with_API_label" />
+
+        <TextView
+            style="@style/TextViewFieldStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoLink="web"
+            android:text="@string/integrate_with_API_web" />
+
+        <TextView
+            style="@style/TextViewLabelFieldStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/test_and_deploy_label" />
+
+        <TextView
+            style="@style/TextViewFieldStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoLink="web"
+            android:text="@string/test_and_deploy_web" />
+
+        <Button
+            android:id="@+id/payment_button_ok"
+            style="@style/ButtonStyle"
+            android:layout_gravity="right"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:text="@string/ok" />
+
+    </LinearLayout>
+
+</ScrollView>
