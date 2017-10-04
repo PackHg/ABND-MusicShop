@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -19,7 +18,6 @@ import static com.oz_heng.apps.android.musicshop.Utils.saveWishlist;
 import static com.oz_heng.apps.android.musicshop.Utils.saveWishlistLastItem;
 
 public class AlbumActivity extends AppCompatActivity {
-    private static final String LOG_TAG = AlbumActivity.class.getSimpleName();
 
     private int mAlbumNumber = 0;
 
@@ -42,10 +40,9 @@ public class AlbumActivity extends AppCompatActivity {
 
         // Restore wishlist data from SharedPreferences.
         restoreWishlist(this);
-        Log.v(LOG_TAG, "onCreate() - wislist:" + wishlist.toString());
 
         /* Depending on the Album is or isn't in the wishlist, set the corresponding text on the button
-           R.id.album_add_or_remove_whishlist and set the corresponding action on this button (add or
+           R.id.album_add_or_remove_wishlist and set the corresponding action on this button (add or
            remove from wishlist.
          */
         final Button wishlistButton = (Button) findViewById(R.id.album_add_or_remove_whishlist);
@@ -77,7 +74,6 @@ public class AlbumActivity extends AppCompatActivity {
                             mAlbumNumber + 1));
                     wishlistButton.setText(getString(R.string.remove_from_wishlist));
                 }
-                Log.v(LOG_TAG, "wishlist: " + wishlist.toString());
             }
         });
 
@@ -89,8 +85,6 @@ public class AlbumActivity extends AppCompatActivity {
         songListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                String song = "Song " + (mAlbumNumber + 1) + "-" +
-                        String.format("%02d%n", position + 1);
                 displayToastMessage(AlbumActivity.this, getString(R.string.listview_is_mockup));
             }
         });
@@ -105,7 +99,7 @@ public class AlbumActivity extends AppCompatActivity {
             }
         });
 
-        /* Disply the album price on the button R.id.album_buy, and set this button
+        /* Display the album price on the button R.id.album_buy, and set this button
            to start the PaymentActivity.
          */
         Button buyButton = (Button) findViewById(R.id.album_buy);

@@ -22,13 +22,14 @@ public class ReadMoreActivity extends AppCompatActivity {
         Intent intent = getIntent();
         mAlbumNumber = intent.getIntExtra(ALBUM_NUMBER_ARG, mAlbumNumber);
 
-        // set the Album number in the action bar.
+        // Set the Album number in the action bar.
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             String title = getString(R.string.album_detail, mAlbumNumber + 1);
             actionBar.setTitle(title);
         }
 
+        // Set the OK button to go back to the album.
         Button okButton = (Button) findViewById(R.id.read_more_button_ok);
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override

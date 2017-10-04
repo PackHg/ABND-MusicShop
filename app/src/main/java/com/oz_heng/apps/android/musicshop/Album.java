@@ -3,7 +3,7 @@ package com.oz_heng.apps.android.musicshop;
 import java.util.ArrayList;
 
 /**
- * Data and methods relevant to an album.
+ * Data and methods relevant to an Album.
  */
 public class Album {
 
@@ -14,7 +14,7 @@ public class Album {
 
     /**
      * Create a new Album object.
-     * @param title title of the album.
+     * @param title Title of the album.
      * @param songs ArrayList of {@link Song}.
      */
     public Album(String title, ArrayList<Song> songs) {

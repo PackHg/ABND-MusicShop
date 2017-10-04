@@ -12,12 +12,12 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 /**
- * {@link AlbumAdaper} is an {@link ArrayAdapter} that can provide the layout for each
- * list item based on a data source, which is a list of {@link Album} objects.
+ * {@link AlbumAdapter} is an {@link ArrayAdapter} that can provide the layout for each
+ * list item based on a data source, which is an {@link ArrayList<Album>}.
  */
-public class AlbumAdaper extends ArrayAdapter<Album> {
+class AlbumAdapter extends ArrayAdapter<Album> {
 
-    public AlbumAdaper(@NonNull Context context, @NonNull ArrayList<Album> albums) {
+    AlbumAdapter(@NonNull Context context, @NonNull ArrayList<Album> albums) {
         super(context, 0, albums);
     }
 
@@ -36,10 +36,9 @@ public class AlbumAdaper extends ArrayAdapter<Album> {
         Album album = getItem(position);
 
         if (album != null) {
-
+            // Display the album number and price.
             TextView titleTextView = albumView.findViewById(R.id.album_number);
             titleTextView.setText(album.getTitle());
-
             TextView priceTextView = albumView.findViewById(R.id.album_price);
             priceTextView.setText(String.format("$%.2f%n", album.getPrice()).trim());
         }

@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -21,11 +20,9 @@ import static com.oz_heng.apps.android.musicshop.Utils.restoreWishlist;
 import static com.oz_heng.apps.android.musicshop.Utils.saveWishlistLastItem;
 
 /**
- * {@link CatalogueActivity} displays a list of albums.
+ * {@link CatalogueActivity} displays a {@link GridView} of albums.
  */
 public class CatalogueActivity extends AppCompatActivity {
-
-    private static final String LOG_TAG = CatalogueActivity.class.getSimpleName();
 
     // Key for passing the album number as argument through an Intent.
     static final String ALBUM_NUMBER_ARG = "album_number";
@@ -95,12 +92,10 @@ public class CatalogueActivity extends AppCompatActivity {
         // Restore wishlist data from SharedPreferences
         restoreWishlist(this);
 
-        Log.v(LOG_TAG, "onCreate() - wislist:" + wishlist.toString());
-
         // Set AlbumAdapter to the GridView
         GridView albumGridView = (GridView) findViewById(R.id.catalogue_gridview);
-        AlbumAdaper albumAdaper = new AlbumAdaper(this, catalogue);
-        albumGridView.setAdapter(albumAdaper);
+        AlbumAdapter albumAdapter = new AlbumAdapter(this, catalogue);
+        albumGridView.setAdapter(albumAdapter);
 
         // Associate albumGridView with a contextual menu.
         registerForContextMenu(albumGridView);
@@ -152,7 +147,6 @@ public class CatalogueActivity extends AppCompatActivity {
                             albumNumber + 1));
                     saveWishlistLastItem(this);
                 }
-                Log.v(LOG_TAG, "wishlist: " + wishlist.toString());
                 return true;
 
             default:

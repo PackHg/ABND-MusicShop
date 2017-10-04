@@ -62,7 +62,7 @@
         <Button
             android:id="@+id/payment_button_ok"
             style="@style/ButtonStyle"
-            android:layout_gravity="right"
+            android:layout_gravity="end"
             android:layout_marginTop="@dimen/activity_margin"
             android:text="@string/ok" />
 

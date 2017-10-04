@@ -13,8 +13,8 @@ import java.util.ArrayList;
 
 
 /**
- * Created by Pack Heng on 16/09/17
- * pack@oz-heng.com
+ * {@link SongAdapter} is an {@link ArrayAdapter} that can provide the layout for each
+ * list item based on a data source, which is an {@link ArrayList<SongAdapter>}.
  */
 class SongAdapter extends ArrayAdapter<Song> {
 

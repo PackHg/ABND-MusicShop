@@ -14,21 +14,17 @@
     <string name="buy_album">Buy album</string>
     <string name="ok">OK</string>
 
-    <string name="catalogue_purpose">"Toronto and London are among the cities most at risk of a housing bubble as economic optimism and low borrowing costs push up property values in urban areas worldwide, according to UBS Group AG.
-
-        Vancouver and Sydney were also in the top five in terms of risk, the Swiss bank said in a report published on Thursday.
-
-        Toronto and London are among the cities most at risk of a housing bubble as economic optimism and low borrowing costs push up property values in urban areas worldwide, according to UBS Group AG."</string>
-    <string name="album_purpose">@string/catalogue_purpose</string>
+    <string name="catalogue_purpose">"This screen displays a catalogue of albums.\n\nA long press on an album displays a contextual menu giving the user the option of either going to this album, buying it or adding/removing it from the wishlist.\n\nClicking on the Wishlist button will display the wishlist."</string>
 
     <!-- Wishlist -->
-    <string name="wishlist_purpose">@string/catalogue_purpose</string>
+    <string name="wishlist_purpose">This screen displays a list of albums the user has added to the wishlist.\n\nA long press on an album displays a contextual menu giving the user the option of either going to this album, buying it or removing it from the wishlist.\n\nClicking the Catalogue button will bring the user to the Catalogue.</string>
     <string name="wishlist_empty">Wishlist is empty</string>
     <string name="album_already_in_wishlist">Album %1$d is already in the wishlist</string>
     <string name="album_added_to_wishlist">Album %1$d is added to the wishlist</string>
     <string name="album_removed_from_wishlist">Album %1$d is removed from the wishlist</string>
 
     <!-- Album -->
+    <string name="album_purpose">This screen displays the album\'s list of songs. This list is a mockup.\n\nClicking the Read more button will display the album detail, the price button will display the payment screen. And the user can add or remove the album to or from the wishlist, go to the wishlist or the catalogue.</string>
     <string name="album_number">Album %1$d</string>
     <string name="listview_is_mockup">This ListView is a mockup. Song playback is not implemented.</string>
 
@@ -52,7 +48,7 @@
     <string name="read_more_internet_connection">Required for streaming or downloading</string>
 
     <!-- Payment -->
-    <string name="payment_purpose">This screen is about the payment of the selected album.\n\nGoogle Payment API can be used to enable checkout for customers in this app.\n\nThe following steps are required in order to use the Google Payment API:</string>
+    <string name="payment_purpose">This screen is about the payment of the selected album. The payment is not implemented.\n\nGoogle Payment API can be used to enable checkout for customers in this app.\n\nThe following steps are required in order to use the Google Payment API:</string>
     <string name="set_up_API_label">1. Set up Google Payment API</string>
     <string name="set_up_API_web">developers.google.com/payments/setup</string>
     <string name="integrate_with_API_label">2. Integrate this app with the Google Payment API</string>

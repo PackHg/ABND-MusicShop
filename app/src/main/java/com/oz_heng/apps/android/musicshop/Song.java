@@ -1,7 +1,7 @@
 package com.oz_heng.apps.android.musicshop;
 
 /**
- * Data and methods relevant to a song.
+ * Data and methods relevant to a Song.
  */
 public class Song {
 
