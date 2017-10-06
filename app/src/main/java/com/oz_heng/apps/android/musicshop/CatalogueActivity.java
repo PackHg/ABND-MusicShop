@@ -2,7 +2,6 @@ package com.oz_heng.apps.android.musicshop;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
@@ -82,12 +81,6 @@ public class CatalogueActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalogue);
-
-        // set the title in the action bar.
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setTitle(getString(R.string.catalogue));
-        }
 
         // Restore wishlist data from SharedPreferences
         restoreWishlist(this);

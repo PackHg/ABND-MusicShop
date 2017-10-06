@@ -19,6 +19,7 @@
         <item name="android:stretchMode">columnWidth</item>
         <item name="android:verticalSpacing">10dp</item>
         <item name="android:background">@color/colorGray300</item>
+        <item name="android:drawSelectorOnTop">true</item>
     </style>
 
     <style name="ListViewStyle">

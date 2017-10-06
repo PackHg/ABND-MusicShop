@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -18,6 +19,11 @@ public class PaymentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
+
+        // To allow Up navigation in the action bar.
+        if (getActionBar() != null) {
+            getActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
         // Get the Album number passed through the Intent.
         Intent intent = getIntent();
@@ -41,5 +47,18 @@ public class PaymentActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                Intent albumIntent = new Intent(this, AlbumActivity.class);
+                albumIntent.putExtra(ALBUM_NUMBER_ARG, mAlbumNumber);
+                startActivity(albumIntent);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

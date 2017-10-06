@@ -9,6 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <!-- The main/home activity (it has no parent activity) -->
         <activity android:name=".CatalogueActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,10 +18,43 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AlbumActivity" />
-        <activity android:name=".WishlistActivity" />
-        <activity android:name=".PaymentActivity" />
-        <activity android:name=".ReadMoreActivity" />
+
+        <activity
+            android:name=".AlbumActivity"
+            android:parentActivityName=".CatalogueActivity">
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CatalogueActivity" />
+        </activity>
+
+        <activity
+            android:name=".WishlistActivity"
+            android:label="@string/wishlist"
+            android:parentActivityName=".CatalogueActivity">
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CatalogueActivity" />
+        </activity>
+
+        <activity
+            android:name=".PaymentActivity"
+            android:parentActivityName=".AlbumActivity">
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AlbumActivity" />
+        </activity>
+
+        <activity
+            android:name=".ReadMoreActivity"
+            android:parentActivityName=".AlbumActivity">
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AlbumActivity" />
+        </activity>
     </application>
 
 </manifest>

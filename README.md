@@ -6,7 +6,7 @@ The main screen of the app displays a GridView of albums.
 * A long press on an album displays a contextual menu allowing the user the option of either going to the album, buying it or adding it to the wishlist.
 * A click on the Wishlist button will display the Wishlist screen where the user can see all the albums they have added to the wishlist. From there, the user can either remove an album from the wishlist, or also go to the album or buy it.
 
-This app is not a full-fledged music shop application. The payment of an album is not implemented, neither is the playback of a song. 
+This app is not a full-fledged music shop application. The payment of an album is not implemented, neither is the playback of a song.
 
 ## IDE
 * Android Studio 2.3.3
@@ -16,10 +16,8 @@ This app is not a full-fledged music shop application. The payment of an album i
 * Emulator and Virtual device: Nexus SX API 25
 
 ## Screenshots
-<img src="https://raw.githubusercontent.com/PackHg/ABND-MusicShop/master/screenshots/screen01.png" width="300">
-<img src="https://raw.githubusercontent.com/PackHg/ABND-MusicShop/master/screenshots/screen02.png" width="300">
-<img src="https://raw.githubusercontent.com/PackHg/ABND-MusicShop/master/screenshots/screen03.png" width="300">
-<img src="https://raw.githubusercontent.com/PackHg/ABND-MusicShop/master/screenshots/screen04.png" width="300">
+<img src="https://raw.githubusercontent.com/PackHg/ABND-MusicShop/master/screenshots/screen01.png" width="300"> <img src="https://raw.githubusercontent.com/PackHg/ABND-MusicShop/master/screenshots/screen02.png" width="300">
+<img src="https://raw.githubusercontent.com/PackHg/ABND-MusicShop/master/screenshots/screen03.png" width="300"> <img src="https://raw.githubusercontent.com/PackHg/ABND-MusicShop/master/screenshots/screen04.png" width="300">
 <img src="https://raw.githubusercontent.com/PackHg/ABND-MusicShop/master/screenshots/screen05.png" width="300">
 
 ## License
